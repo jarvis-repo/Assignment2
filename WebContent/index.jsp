@@ -124,7 +124,7 @@
           id="username"
           name="username"
           required
-          maxlength="10"
+          maxlength="20"
         
           title="Only letters, up to 10 chars"
         />
