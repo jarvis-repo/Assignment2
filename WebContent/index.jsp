@@ -87,13 +87,30 @@
       background: #95a5a6;
       color: #fff;
     }
-    body {
-      background: url('<%=request.getContextPath()%>/images/th.jpg') no-repeat left center fixed;
-      background-size: cover;
-    }
+    
   </style>
 </head>
 <body>
+
+<style>
+  body {
+    /* use JSP context-path so it works off any URL */
+    background: url('<%= request.getContextPath() %>/images/lg.jpg')
+                no-repeat center center fixed;
+    background-size: cover;
+  }
+</style>
+
+<% String successMsg = (String) request.getAttribute("successMsg"); %>
+<% if (successMsg != null) { %>
+  <!-- SUCCESS: show only this banner -->
+  <div class="form-container">
+    <h2 style="color: green; text-align: center;">
+      <%= successMsg %>
+    </h2>
+  </div>
+<% } else { %>
+  <!-- NO CHANGE HERE: your original form, validation and layout live on -->
 
   <div class="form-container">
     <h2>User Sign-up Form</h2>
@@ -191,6 +208,8 @@
       
     </form>
   </div>
+
+<% } %>
 
 </body>
 </html>
